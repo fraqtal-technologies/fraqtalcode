@@ -4,11 +4,12 @@
 
 ## Local Dev
 
-- `opencode dev web` proxies `https://app.opencode.ai`, so local UI/CSS changes will not show there.
-- For local UI changes, run the backend and app dev servers separately.
-- Backend (from `packages/opencode`): `bun run --conditions=browser ./src/index.ts serve --port 4096`
-- App (from `packages/app`): `bun dev -- --port 4444`
-- Open `http://localhost:4444` to verify UI changes (it targets the backend at `http://localhost:4096`).
+- **`packages/ui` (e.g. `logo.tsx`) is only picked up when Vite builds the app** (`packages/app`, or desktop `tauri dev`, or `bun dev:web` from repo root). Hot reload applies there.
+- **`opencode serve` / `opencode web` / root `bun dev`** (OpenCode server) usually serves the web UI from **`https://app.opencode.ai`** or from an **embedded bundle** produced at release build—not your working tree. Edits under `packages/ui` will **not** show in that browser session until you ship a new embedded UI build or use local Vite below.
+- To verify branding and components locally, run backend + app Vite separately:
+  - Backend (from `packages/opencode`): `bun run --conditions=browser ./src/index.ts serve --port 4096`
+  - App (from `packages/app`): `bun dev` (default Vite port is in `vite.config.ts`, often `3000`; override with `-- --port <port>`)
+  - Open that localhost URL with the API at `http://localhost:4096` (configure as your environment expects).
 
 ## SolidJS
 

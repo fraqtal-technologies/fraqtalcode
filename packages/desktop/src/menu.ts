@@ -158,11 +158,11 @@ export async function createMenu(trigger: (id: string) => void) {
         items: [
           // missing native macos search
           await MenuItem.new({
-            action: () => openUrl("https://opencode.ai/docs"),
+            action: () => openUrl("https://github.com/fraqtal-technologies/fraqtalcode/tree/dev/docs"),
             text: t("desktop.menu.help.documentation"),
           }),
           await MenuItem.new({
-            action: () => openUrl("https://discord.com/invite/opencode"),
+            action: () => openUrl("https://github.com/fraqtal-technologies/fraqtalcode/discussions"),
             text: t("desktop.menu.help.supportForum"),
           }),
           await PredefinedMenuItem.new({
@@ -175,11 +175,11 @@ export async function createMenu(trigger: (id: string) => void) {
             item: "Separator",
           }),
           await MenuItem.new({
-            action: () => openUrl("https://github.com/anomalyco/opencode/issues/new?template=feature_request.yml"),
+            action: () => openUrl("https://github.com/fraqtal-technologies/fraqtalcode/issues/new?template=feature-request"),
             text: t("desktop.menu.help.shareFeedback"),
           }),
           await MenuItem.new({
-            action: () => openUrl("https://github.com/anomalyco/opencode/issues/new?template=bug_report.yml"),
+            action: () => openUrl("https://github.com/fraqtal-technologies/fraqtalcode/issues/new?template=bug-report"),
             text: t("desktop.menu.help.reportBug"),
           }),
         ],

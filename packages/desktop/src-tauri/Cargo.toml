@@ -1,8 +1,8 @@
 [package]
 name = "opencode-desktop"
 version = "0.0.0"
-description = "The open source AI coding agent"
-authors = ["Anomaly Innovations"]
+description = "Fraqtal desktop shell (Tauri)"
+authors = ["Fraqtal Technologies"]
 edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

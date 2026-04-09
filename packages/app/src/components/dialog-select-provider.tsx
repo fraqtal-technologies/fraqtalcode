@@ -11,7 +11,14 @@ import { DialogCustomProvider } from "./dialog-custom-provider"
 
 const CUSTOM_ID = "_custom"
 
-export const DialogSelectProvider: Component = () => {
+export type DialogSelectProviderProps = {
+  /** When set, only these provider IDs are listed (e.g. Settings → Providers). */
+  providerIdAllowlist?: ReadonlySet<string>
+  /** Omit the custom OpenAI-compatible provider row (used with Settings allowlist). */
+  hideCustomProvider?: boolean
+}
+
+export const DialogSelectProvider: Component<DialogSelectProviderProps> = (props) => {
   const dialog = useDialog()
   const providers = useProviders()
   const language = useLanguage()
@@ -35,7 +42,12 @@ export const DialogSelectProvider: Component = () => {
         key={(x) => x?.id}
         items={() => {
           language.locale()
-          return [{ id: CUSTOM_ID, name: customLabel() }, ...providers.all()]
+          const all = providers.all()
+          const filtered = props.providerIdAllowlist
+            ? all.filter((p) => props.providerIdAllowlist!.has(p.id))
+            : all
+          if (props.hideCustomProvider) return filtered
+          return [{ id: CUSTOM_ID, name: customLabel() }, ...filtered]
         }}
         filterKeys={["id", "name"]}
         groupBy={(x) => (popularProviders.includes(x.id) ? popularGroup() : otherGroup())}

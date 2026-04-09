@@ -1,5 +1,7 @@
 # Tauri Icons
 
+Replace assets under `icons/dev`, `icons/beta`, and `icons/prod` with Fraqtal artwork (sizes must match `tauri.conf.json` / flavor-specific configs).
+
 Here's the process I've been using to create icons:
 
 - Save source image as `app-icon.png` in `packages/desktop`

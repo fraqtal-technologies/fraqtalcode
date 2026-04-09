@@ -1,4 +1,9 @@
 [data-component="logo-mark"] {
   width: 16px;
-  aspect-ratio: 4/5;
+  aspect-ratio: 24 / 36;
+}
+
+[data-component="logo-full"] .logo-wordmark {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
 }

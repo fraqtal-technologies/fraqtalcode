@@ -15,9 +15,9 @@ struct DisplayConfig {
 
 fn dir() -> Option<PathBuf> {
     Some(dirs::data_dir()?.join(if cfg!(debug_assertions) {
-        "ai.opencode.desktop.dev"
+        "com.fraqtalcode.fraqtal.dev"
     } else {
-        "ai.opencode.desktop"
+        "com.fraqtalcode.fraqtal"
     }))
 }
 
